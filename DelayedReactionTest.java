@@ -17,8 +17,9 @@ public class DelayedReactionTest {
                 .when()
                 .get("https://reqres.in/api/data ")
                 .then();
-        System.out.println("Response: " + response.extract().asPrettyString());
-        System.out.println("Report-To: " + response.extract().header("Report-To"));
+        String reportToHeader = response.extract().header("Report-To");
+        System.out.println("Report-To: " + reportToHeader);
+        assertNotNull(reportToHeader);
     }
 
     @Test
